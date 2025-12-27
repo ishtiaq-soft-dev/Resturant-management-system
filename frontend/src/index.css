@@ -332,6 +332,48 @@ select:focus {
   background: #b71c1c;
 }
 
+/* Hide default SweetAlert2 input elements when not in use */
+/* Hide elements that have display:none style - these are unused default elements */
+#swal2-input[style*="display: none"],
+#swal2-textarea[style*="display: none"],
+#swal2-checkbox[style*="display: none"],
+.swal2-input[style*="display: none"],
+.swal2-textarea[style*="display: none"],
+.swal2-checkbox[style*="display: none"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+
+/* Hide default swal2-input and swal2-textarea that are not inside active popup */
+.swal2-container:not(.swal2-show) #swal2-input,
+.swal2-container:not(.swal2-show) #swal2-textarea,
+.swal2-container:not(.swal2-show) #swal2-checkbox,
+.swal2-container:not(.swal2-show) .swal2-input:not([id^="swal-"]),
+.swal2-container:not(.swal2-show) .swal2-textarea:not([id^="swal-"]),
+.swal2-container:not(.swal2-show) .swal2-checkbox:not([id^="swal-"]) {
+  display: none !important;
+}
+
+/* Hide default elements that are outside of popup container */
+body > #swal2-input,
+body > #swal2-textarea,
+body > #swal2-checkbox,
+.swal2-container:not(.swal2-show) #swal2-input,
+.swal2-container:not(.swal2-show) #swal2-textarea,
+.swal2-container:not(.swal2-show) #swal2-checkbox {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 /* SweetAlert2 Responsive Styles */
 .swal2-popup-responsive {
   width: 100% !important;
